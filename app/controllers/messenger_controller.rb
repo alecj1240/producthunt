@@ -15,7 +15,7 @@ class MessengerController < ApplicationController
     @phPageArray.shift
     puts @phPageArray
     puts @phPageArray.count
-    @phPageArray = @phPageArray.split('secondaryContent')
+    @phPageArray = @phPageArray.split('sidebar_bc462')
     puts @phPageArray.count
     @phPageArray.pop
     puts @phPageArray.count
