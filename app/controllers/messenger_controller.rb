@@ -11,7 +11,7 @@ class MessengerController < ApplicationController
 
     @phPage = HTTParty.get("https://www.producthunt.com/topics/tech")
     @phPage = @phPage.to_s
-    @phPageArray = @phPage.split('<body class="env-production">')
+    @phPageArray = @phPage.split('Today')
     @phPageArray.shift
     @phPageArray = @phPageArray[0]
     @phPageArray = @phPageArray.split('secondaryContent_cdfcd')
