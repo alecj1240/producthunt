@@ -9,6 +9,6 @@ class Messagehuman
 
   def self.phapi()
     HTTParty.get("https://api.producthunt.com/v1/me/feed",
-    :headers => { 'Content-Type' => 'application/json', 'Authorization' => "be69146902dfda36771878b6a76300ad539d04947cde370de5999aedaa084656"})
+    :headers => { 'Content-Type' => 'application/json', 'Authorization' => "c50ca535778cd0210e847818307b36b84dd1503a49c40dc80dacfe76fe1ff4cf"})
   end
 end
