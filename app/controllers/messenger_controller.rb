@@ -10,7 +10,7 @@ class MessengerController < ApplicationController
     testMessage = Messagehuman.sendMessage(@webhook["response_url"][0], "we are retreiving that info...")
 
 		phAPI = Messagehuman.phapi()
-		phAPI.inspect
+		puts phAPI.inspect
 
     # getting the product hunt page that day
     @phPage = HTTParty.get("https://www.producthunt.com/topics/tech")
@@ -23,6 +23,6 @@ class MessengerController < ApplicationController
     @phPageArray.pop
     @phPageArray = @phPageArray[0]
     #putsing the page
-    puts @phPageArray.split('title_9ddaf">')
+    #puts @phPageArray.split('title_9ddaf">')
   end
 end
