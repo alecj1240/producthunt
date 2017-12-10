@@ -8,7 +8,7 @@ class Messagehuman
 	end
 
   def self.phapi()
-    HTTParty.post("https://api.producthunt.com/v1/me/feed",
+    HTTParty.post("/v1/me/feed",
     :headers => { 'Content-Type' => 'application/json', 'Authorization' => "be69146902dfda36771878b6a76300ad539d04947cde370de5999aedaa084656", "Host" => "api.producthunt.com" })
   end
 end
