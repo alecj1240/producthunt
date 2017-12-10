@@ -18,7 +18,8 @@ class MessengerController < ApplicationController
     @phPageArray = @phPageArray[0]
     @phPageArray = @phPageArray.split('secondaryContent_cdfcd')
     @phPageArray.pop
+    @phPageArray = @phPageArray[0]
     #putsing the page
-    puts @phPageArray.split('title_9ddaf').count
+    puts @phPageArray.split('title_9ddaf">').count
   end
 end
