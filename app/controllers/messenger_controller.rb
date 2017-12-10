@@ -13,8 +13,8 @@ class MessengerController < ApplicationController
     @phPage = @phPage.to_s
     @phPageArray = @phPage.split('<body class="env-production">')
     @phPageArray.shift
-    @phPageArray.split('secondaryContent')
-    #@phPageArray.pop
-    puts @phPageArray.count
+    @phPageArray = @phPageArray.split('secondaryContent')
+    @phPageArray.pop
+    puts @phPageArray.inspect
   end
 end
