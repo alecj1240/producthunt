@@ -9,7 +9,10 @@ class MessengerController < ApplicationController
     puts @webhook
     testMessage = Messagehuman.sendMessage(@webhook["response_url"][0], "we are retreiving that info...")
 
-    @productHuntPage = HTTParty.get("https://www.producthunt.com/topics/tech")
-    puts @productHuntPage
+    @phPage = HTTParty.get("https://www.producthunt.com/topics/tech")
+    @phPage = @phPage.to_s
+    @phPageArray = @phPage.split('<body class="env-production">')
+    @phPageArray.shift
+    puts @phPageArray.inspect
   end
 end
