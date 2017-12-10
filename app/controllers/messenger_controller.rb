@@ -15,6 +15,6 @@ class MessengerController < ApplicationController
     @phPageArray.shift
     @phPageArray.split('secondaryContent')
     #@phPageArray.pop
-    puts @phPageArray.inspect
+    puts @phPageArray.count
   end
 end
