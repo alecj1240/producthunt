@@ -21,6 +21,7 @@ class MessengerController < ApplicationController
     @phPageTitles.pop
     @phPageTitles = @phPageTitles[0]
 		@phPageTitles = @phPageTitles.split("title_9ddaf")
+=begin
 		@finalTitles = Array.new
     @phPageTitles.each do |title|
 			letter = title.split("")
@@ -32,7 +33,8 @@ class MessengerController < ApplicationController
 			end
 			@finalTitles.push(theTitle)
 		end
+=end
 		puts "THE FINAL TITLES"
-		puts @finalTitles.inspect
+		puts @phPageTitles.count
   end
 end
