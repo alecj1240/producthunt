@@ -9,7 +9,7 @@ class MessengerController < ApplicationController
     puts @webhook
 
     # getting the product hunt page that day
-    @phPage = HTTParty.get("https://www.producthunt.com/topics/productivity")
+    @phPage = HTTParty.get("https://www.producthunt.com/topics/bots")
     @phPage = @phPage.to_s
     #trimming down the excess
 
