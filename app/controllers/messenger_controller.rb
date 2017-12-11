@@ -22,7 +22,7 @@ class MessengerController < ApplicationController
 		#getting the titles
     @phPageTitles = @phPageArray.split('secondaryContent_cdfcd')
     @phPageTitles.pop
-    @phPageTitles = @phPageTitles[0]
+    @phPageTitles = @phPageTitles
 		@finalTitles = Array.new
     @phPageTitles.each do |title|
 			letter = title.split("")
