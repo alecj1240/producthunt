@@ -7,7 +7,7 @@ class MessengerController < ApplicationController
   def receive_message
     @webhook = CGI::parse(request.raw_post)
     puts @webhook
-		
+
     # getting the product hunt page that day
     @phPage = HTTParty.get("https://www.producthunt.com/topics/tech")
     @phPage = @phPage.to_s
@@ -58,7 +58,7 @@ class MessengerController < ApplicationController
 		end
 		puts @finalLinks
 
-		@finalMessage = "#{@finalTitles[0]} - <#{@finalLinks[0]}>" + "\n" + "#{@finalTitles[1]} - <#{@finalLinks[1]}>" + "\n" + "#{@finalTitles[2]} - <#{@finalLinks[2]}>" + "\n" + "#{@finalTitles[3]} - <#{@finalLinks[3]}>" + "\n" + "#{@finalTitles[4]} - <#{@finalLinks[4]}>"
+		@finalMessage = "1. " + "#{@finalTitles[0]} - <#{@finalLinks[0]}>" + "\n" + "2. " + "#{@finalTitles[1]} - <#{@finalLinks[1]}>" + "\n" + "3." + "#{@finalTitles[2]} - <#{@finalLinks[2]}>" + "\n" + "4." + "#{@finalTitles[3]} - <#{@finalLinks[3]}>" + "\n" + "5." + "#{@finalTitles[4]} - <#{@finalLinks[4]}>"
 
 		Messagehuman.sendMessage(@webhook["response_url"][0], @finalMessage)
 
