@@ -19,10 +19,21 @@ class MessengerController < ApplicationController
     @phPageArray = @phPage.split('Today')
     @phPageArray.shift
     @phPageArray = @phPageArray[0]
-    @phPageArray = @phPageArray.split('secondaryContent_cdfcd')
-    @phPageArray.pop
-    @phPageArray = @phPageArray[0]
-    #putsing the page
-    #puts @phPageArray.split('title_9ddaf">')
+		#getting the titles
+    @phPageTitles = @phPageArray.split('secondaryContent_cdfcd')
+    @phPageTitles.pop
+    @phPageTitles = @phPageTitles[0]
+		@finalTitles = Array.new
+    @phPageTitles.each do |title|
+			letter = title.split("")
+			theTitle = String.new
+			letter.each do |char|
+				if char != "<"
+					theTitle = theTitle + char
+				end
+			end
+			@finalTitles.push(theTitle)
+		end
+		puts @finalTitles.inspect
   end
 end
