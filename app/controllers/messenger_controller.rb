@@ -31,6 +31,7 @@ class MessengerController < ApplicationController
 			end
 			@finalTitles.push(theTitle)
 		end
+		puts "THE FINAL TITLES"
 		puts @finalTitles.inspect
   end
 end
