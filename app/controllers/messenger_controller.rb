@@ -33,7 +33,8 @@ class MessengerController < ApplicationController
 					break
 				end
 			end
-			@finalTitles.push(theTitle)
+			break if @finalTitles.count == 5
+			@finalTitles.push(theTitle) if
 		end
 		puts @finalTitles
 
