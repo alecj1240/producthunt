@@ -44,7 +44,7 @@ class MessengerController < ApplicationController
 		@phPageLinks.shift
 		@finalLinks = Array.new
     @phPageLinks.each do |link|
-		 	titleChar = link.split("")
+		 	linkChar = link.split("")
 			theLink = String.new
 			linkChar.each do |char|
 				if char != ">"
