@@ -36,9 +36,8 @@ class MessengerController < ApplicationController
 			break if @finalTitles.count == 5
 			@finalTitles.push(theTitle)
 		end
-		puts @finalTitles
 
-
+		puts @phPageArray
 
 
   end
