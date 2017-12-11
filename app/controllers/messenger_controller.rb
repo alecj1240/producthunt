@@ -9,7 +9,7 @@ class MessengerController < ApplicationController
     puts @webhook
 
     # getting the product hunt page that day
-    @phPage = HTTParty.get("https://www.producthunt.com/topics/tech")
+    @phPage = HTTParty.get("https://www.producthunt.com/topics/productivity")
     @phPage = @phPage.to_s
     #trimming down the excess
     @phPageArray = @phPage.split('Today')
@@ -58,7 +58,7 @@ class MessengerController < ApplicationController
 		end
 		puts @finalLinks
 
-		@finalMessage = "1. " + "#{@finalTitles[0]} - <#{@finalLinks[0]}>" + "\n" + "2. " + "#{@finalTitles[1]} - <#{@finalLinks[1]}>" + "\n" + "3." + "#{@finalTitles[2]} - <#{@finalLinks[2]}>" + "\n" + "4." + "#{@finalTitles[3]} - <#{@finalLinks[3]}>" + "\n" + "5." + "#{@finalTitles[4]} - <#{@finalLinks[4]}>"
+		@finalMessage = "1. " + "#{@finalTitles[0]} - <#{@finalLinks[0]}>" + "\n" + "2. " + "#{@finalTitles[1]} - <#{@finalLinks[1]}>" + "\n" + "3. " + "#{@finalTitles[2]} - <#{@finalLinks[2]}>" + "\n" + "4. " + "#{@finalTitles[3]} - <#{@finalLinks[3]}>" + "\n" + "5. " + "#{@finalTitles[4]} - <#{@finalLinks[4]}>"
 
 		Messagehuman.sendMessage(@webhook["response_url"][0], @finalMessage)
 
