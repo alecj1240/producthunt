@@ -47,7 +47,7 @@ class MessengerController < ApplicationController
 		 	linkChar = link.split("")
 			theLink = String.new
 			linkChar.each do |char|
-				if char != ">"
+				if char != '"'
 					theLink = theLink + char
 				else
 					break
