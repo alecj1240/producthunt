@@ -16,10 +16,11 @@ class MessengerController < ApplicationController
     @phPageArray = @phPage.split('Today')
     @phPageArray.shift
     @phPageArray = @phPageArray[0]
+    @phPageArray = @phPageArray.split('secondaryContent_cdfcd')
+    @phPageArray.pop
+		@phPageArray = @phPageArray[0]
 		#getting the titles
-    @phPageTitles = @phPageArray.split('secondaryContent_cdfcd')
-    @phPageTitles.pop
-    @phPageTitles = @phPageTitles[0]
+    @phPageTitles = @phPageArray
 		@phPageTitles = @phPageTitles.split('title_9ddaf">')
 		@phPageTitles.shift
 		@finalTitles = Array.new
@@ -36,8 +37,26 @@ class MessengerController < ApplicationController
 			break if @finalTitles.count == 5
 			@finalTitles.push(theTitle)
 		end
+		puts @finalTitles
 
-		puts @phPageArray
+		# getting the ph turbolinks
+		@phPageLinks = @phPageArray.split('link_523b9" href="')
+		@phPageLinks.shift
+		@finalLinks = Array.new
+    @phPageLinks.each do |link|
+		 	titleChar = link.split("")
+			theLink = String.new
+			linkChar.each do |char|
+				if char != ">"
+					theLink = theLink + char
+				else
+					break
+				end
+			end
+			break if @finalLinks.count == 5
+			@finalLinks.push(theLink)
+		end
+		puts @finalLinks
 
 
   end
