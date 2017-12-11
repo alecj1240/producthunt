@@ -12,7 +12,13 @@ class MessengerController < ApplicationController
     @phPage = HTTParty.get("https://www.producthunt.com/topics/productivity")
     @phPage = @phPage.to_s
     #trimming down the excess
-    @phPageArray = @phPage.split('Today')
+
+    @phPageArray = @phPage
+		if @phPageArray.include?("Today")
+			@phPageArray = @phPageArray.split('Today')
+		else
+			@phPageArray = @phPageArray.split('placeholder="Filter Posts"')
+		end
     @phPageArray.shift
     @phPageArray = @phPageArray[0]
     @phPageArray = @phPageArray.split('secondaryContent_cdfcd')
