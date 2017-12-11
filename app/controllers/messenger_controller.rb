@@ -59,6 +59,9 @@ class MessengerController < ApplicationController
 		end
 		puts @finalLinks
 
+		@finalMessage = "#{@finalTitles[0]} - <#{@finalLinks[0]}>" + "\n" + "#{@finalTitles[1]} - <#{@finalLinks[1]}>" + "\n" + "#{@finalTitles[2]} - <#{@finalLinks[2]}>" + "\n" + "#{@finalTitles[3]} - <#{@finalLinks[3]}>" + "\n" + "#{@finalTitles[4]} - <#{@finalLinks[4]}>"
+
+		Messagehuman.sendMessage(@webhook["response_url"][0], @finalMessage)
 
   end
 end
