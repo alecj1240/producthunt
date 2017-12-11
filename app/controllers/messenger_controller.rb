@@ -24,7 +24,13 @@ class MessengerController < ApplicationController
 		@phPageTitles.shift
 		@finalTitles = Array.new
     @phPageTitles.each do |title|
-			puts title.inspect
+		 	titleChar = title.split("")
+			puts titleChar.count
 		end
+
+
+
+
+
   end
 end
