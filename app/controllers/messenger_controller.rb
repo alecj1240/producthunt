@@ -20,7 +20,8 @@ class MessengerController < ApplicationController
     @phPageTitles = @phPageArray.split('secondaryContent_cdfcd')
     @phPageTitles.pop
     @phPageTitles = @phPageTitles[0]
-		@phPageTitles = @phPageTitles.split("title_9ddaf")
+		@phPageTitles = @phPageTitles.split('title_9ddaf">')
+		@phPageTitles.shift
 		@finalTitles = Array.new
     @phPageTitles.each do |title|
 			puts title.inspect
