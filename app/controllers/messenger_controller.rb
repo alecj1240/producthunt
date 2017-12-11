@@ -21,20 +21,9 @@ class MessengerController < ApplicationController
     @phPageTitles.pop
     @phPageTitles = @phPageTitles[0]
 		@phPageTitles = @phPageTitles.split("title_9ddaf")
-=begin
 		@finalTitles = Array.new
     @phPageTitles.each do |title|
-			letter = title.split("")
-			theTitle = String.new
-			letter.each do |char|
-				if char != "<"
-					theTitle = theTitle + char
-				end
-			end
-			@finalTitles.push(theTitle)
+			puts title.inspect
 		end
-=end
-		puts "THE FINAL TITLES"
-		puts @phPageTitles.count
   end
 end
