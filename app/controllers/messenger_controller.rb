@@ -33,7 +33,7 @@ class MessengerController < ApplicationController
 			end
 			@finalTitles.push(theTitle)
 		end
-		puts @finalTitles.count
+		puts @finalTitles
 
 
 
