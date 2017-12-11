@@ -54,6 +54,7 @@ class MessengerController < ApplicationController
 				end
 			end
 			break if @finalLinks.count == 5
+			theLink = "https://www.producthunt.com" + theLink
 			@finalLinks.push(theLink)
 		end
 		puts @finalLinks
