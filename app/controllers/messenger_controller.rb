@@ -25,9 +25,15 @@ class MessengerController < ApplicationController
 		@finalTitles = Array.new
     @phPageTitles.each do |title|
 		 	titleChar = title.split("")
-			puts titleChar.count
+			theTitle = String.new
+			titleChar.each do |char|
+				if char != "<"
+					theTitle = theTitle + char
+				end
+			end
+			@finalTitles.push(theTitle)
 		end
-
+		puts @finalTitles.count
 
 
 
