@@ -29,6 +29,8 @@ class MessengerController < ApplicationController
 			titleChar.each do |char|
 				if char != "<"
 					theTitle = theTitle + char
+				else
+					break
 				end
 			end
 			@finalTitles.push(theTitle)
