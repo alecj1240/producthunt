@@ -166,7 +166,7 @@ class MessengerController < ApplicationController
             ]
 					}
 				]
-			Messagehuman.sendMessageAttach(@webhook["response_url"][0], attachment)
+			Messagehuman.sendMessageAttach(@webhook["response_url"][0], "", attachment)
 		end
   end
 end
