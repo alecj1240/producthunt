@@ -132,7 +132,8 @@ class MessengerController < ApplicationController
 				]
 				counter += 1
 			end
-			Messagehuman.sendMessageAttach(@webhook["response_url"][0], "hey there", attachment)
+			sendIT = Messagehuman.sendMessageAttach(@webhook["response_url"][0], "hey there", attachment)
+			puts sendIT
 		end
   end
 end
