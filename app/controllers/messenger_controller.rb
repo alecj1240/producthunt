@@ -98,6 +98,15 @@ class MessengerController < ApplicationController
 			end
 			Messagehuman.sendMessage(@webhook["response_url"][0], @finalMessage)
 
+			attachment = [
+				{
+				:fallback => "this is the fallback message",
+				:color => "#36a64f",
+				:title => "THE TITLE",
+				:title_link => "https://www.google.ca",
+				}
+			]
+			Messagehuman.sendMessage(@webhook["response_url"][0], "hey there", attachment)
 		end
   end
 end
