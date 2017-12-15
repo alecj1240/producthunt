@@ -69,8 +69,31 @@ class MessengerController < ApplicationController
 			end
 			#   puts @finalLinks
 
-			@finalMessage = "1. " + "#{@finalTitles[0]} - <#{@finalLinks[0]}>" + "\n" + "2. " + "#{@finalTitles[1]} - <#{@finalLinks[1]}>" + "\n" + "3. " + "#{@finalTitles[2]} - <#{@finalLinks[2]}>" + "\n" + "4. " + "#{@finalTitles[3]} - <#{@finalLinks[3]}>" + "\n" + "5. " + "#{@finalTitles[4]} - <#{@finalLinks[4]}>"
+			@phPageTagline = @phPageArray.split('tagline_619b7">')
+			@phPageTagline.shift
+			@finalTaglines = Array.new
+	    @phPageTagline.each do |tagline|
+			 	taglineChar = tagline.split("")
+				theTagline = String.new
+				taglineChar.each do |char|
+					if char != '"'
+						theTagline = theTagline + char
+					else
+						break
+					end
+				end
+				break if @finalTaglines.count == 5
+				@finalTaglines.push(theTagline)
+			end
 
+			counter = 0
+			numCounter = 1
+			@finalMessage = String.new
+			5.times do
+				@finalMessage = @finalMessage = "#{numCounter}. " + "#{@finalTitles[counter]} - #{@finalTaglines[counter]} - <#{@finalLinks[counter]}>" + "\n"
+				counter += 1
+				numCounter += 1
+			end
 			Messagehuman.sendMessage(@webhook["response_url"][0], @finalMessage)
 
 		end
