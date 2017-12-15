@@ -11,7 +11,7 @@ class MessengerController < ApplicationController
     # getting the product hunt page that day
     @phPage = HTTParty.get("https://www.producthunt.com/topics/#{@webhook["text"][0]}")
     @phPage = @phPage.to_s
-		#puts @phPage
+		puts @phPage
 
 		if @phPage.include?("Page not found")
 			Messagehuman.sendMessage(@webhook["response_url"][0], "sorry, we couldn't find that topic, try: tech, productivity, developer-tools")
@@ -123,8 +123,7 @@ class MessengerController < ApplicationController
 						:text => "#{@finalTaglines[4]}"
 					}
 				]
-			sendIT = Messagehuman.sendMessageAttach(@webhook["response_url"][0], "hey there", attachment)
-			puts sendIT
+			Messagehuman.sendMessageAttach(@webhook["response_url"][0], "hey there", attachment)
 		end
   end
 end
