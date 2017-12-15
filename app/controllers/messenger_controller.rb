@@ -70,7 +70,7 @@ class MessengerController < ApplicationController
 			#   puts @finalLinks
 
 			@phPageTagline = @phPageArray.split('tagline_619b7">')
-			@phPageTagline = @phPageTagline.shift
+			@phPageTagline.shift
 			@finalTaglines = Array.new
 	    @phPageTagline.each do |tagline|
 			 	taglineChar = tagline.split("")
