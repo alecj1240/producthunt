@@ -68,7 +68,6 @@ class MessengerController < ApplicationController
 				@finalLinks.push(theLink)
 			end
 			#   puts @finalLinks
-
 			@phPageTagline = @phPageArray.split('tagline_619b7">')
 			@phPageTagline.shift
 			@finalTaglines = Array.new
@@ -85,6 +84,25 @@ class MessengerController < ApplicationController
 				break if @finalTaglines.count == 5
 				@finalTaglines.push(theTagline)
 			end
+
+			@phPageVote = @phPageArray.split('<div class="icon_f5f81"></div> <!-- -->')
+			@phPageVote.shift
+			@finalVotes = Array.new
+	    @phPageVote.each do |vote|
+			 	votreChar = vote.split("")
+				theVote = String.new
+				voteChar.each do |char|
+					if char != '<'
+						theVote = theVote + char
+					else
+						break
+					end
+				end
+				break if @finalVotes.count == 5
+				@finalVotes.push(theVote)
+			end
+
+
 			#puts @finalTaglines.inspect
 				attachment = [
 					{
@@ -92,35 +110,60 @@ class MessengerController < ApplicationController
 						:color => "#36a64f",
 						:title => "#{@finalTitles[0]}",
 						:title_link => "#{@finalLinks[0]}",
-						:text => "#{@finalTaglines[0]}"
+						:text => "#{@finalTaglines[0]}",
+						fields: [
+                {
+                    title: "Vote Count: #{@finalVotes[0]}"
+                }
+            ]
 					},
 					{
 						:fallback => "#{@finalTitles[1]} - #{@finalTaglines[1]} - <#{@finalLinks[1]}>",
 						:color => "#36a64f",
 						:title => "#{@finalTitles[1]}",
 						:title_link => "#{@finalLinks[1]}",
-						:text => "#{@finalTaglines[1]}"
+						:text => "#{@finalTaglines[1]}",
+						fields: [
+                {
+                    title: "Vote Count: #{@finalVotes[1]}"
+                }
+            ]
 					},
 					{
 						:fallback => "#{@finalTitles[2]} - #{@finalTaglines[2]} - <#{@finalLinks[2]}>",
 						:color => "#36a64f",
 						:title => "#{@finalTitles[2]}",
 						:title_link => "#{@finalLinks[2]}",
-						:text => "#{@finalTaglines[2]}"
+						:text => "#{@finalTaglines[2]}",
+						fields: [
+                {
+                    title: "Vote Count: #{@finalVotes[2]}"
+                }
+            ]
 					},
 					{
 						:fallback => "#{@finalTitles[3]} - #{@finalTaglines[3]} - <#{@finalLinks[3]}>",
 						:color => "#36a64f",
 						:title => "#{@finalTitles[3]}",
 						:title_link => "#{@finalLinks[3]}",
-						:text => "#{@finalTaglines[3]}"
+						:text => "#{@finalTaglines[3]}",
+						fields: [
+                {
+                    title: "Vote Count: #{@finalVotes[3]}"
+                }
+            ]
 					},
 					{
 						:fallback => "#{@finalTitles[4]} - #{@finalTaglines[4]} - <#{@finalLinks[4]}>",
 						:color => "#36a64f",
 						:title => "#{@finalTitles[4]}",
 						:title_link => "#{@finalLinks[4]}",
-						:text => "#{@finalTaglines[4]}"
+						:text => "#{@finalTaglines[4]}",
+						fields: [
+                {
+                    title: "Vote Count: #{@finalVotes[4]}"
+                }
+            ]
 					}
 				]
 			Messagehuman.sendMessageAttach(@webhook["response_url"][0], "hey there", attachment)
