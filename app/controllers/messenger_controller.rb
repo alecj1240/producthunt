@@ -86,13 +86,6 @@ class MessengerController < ApplicationController
 				@finalTaglines.push(theTagline)
 			end
 			#puts @finalTaglines.inspect
-
-
-			counter = 0
-			numCounter = 1
-			@finalMessage = String.new
-			while numCounter <= 5
-				@finalMessage = @finalMessage + "#{numCounter}. " + "#{@finalTitles[counter]} - #{@finalTaglines[counter]} - <#{@finalLinks[counter]}>" + "\n"
 				attachment = [
 					{
 						:fallback => "#{@finalTitles[0]} - #{@finalTaglines[0]} - <#{@finalLinks[0]}>",
@@ -100,8 +93,7 @@ class MessengerController < ApplicationController
 						:title => "#{@finalTitles[0]}",
 						:title_link => "#{@finalLinks[0]}",
 						:text => "#{@finalTaglines[0]}"
-					}#,
-=begin
+					},
 					{
 						:fallback => "#{@finalTitles[1]} - #{@finalTaglines[1]} - <#{@finalLinks[1]}>",
 						:color => "#36a64f",
@@ -130,10 +122,7 @@ class MessengerController < ApplicationController
 						:title_link => "#{@finalLinks[4]}",
 						:text => "#{@finalTaglines[4]}"
 					}
-=end
 				]
-				counter += 1
-			end
 			sendIT = Messagehuman.sendMessageAttach(@webhook["response_url"][0], "hey there", attachment)
 			puts sendIT
 		end
