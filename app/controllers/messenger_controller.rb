@@ -6,12 +6,12 @@ class MessengerController < ApplicationController
 
   def receive_message
     @webhook = CGI::parse(request.raw_post)
-    puts @webhook
+  #  puts @webhook
 		Messagehuman.sendMessage(@webhook["response_url"][0], "showing posts from #{@webhook["text"][0]}...")
     # getting the product hunt page that day
     @phPage = HTTParty.get("https://www.producthunt.com/topics/#{@webhook["text"][0]}")
     @phPage = @phPage.to_s
-		puts @phPage
+		#puts @phPage
 
 		if @phPage.include?("Page not found")
 			Messagehuman.sendMessage(@webhook["response_url"][0], "sorry, we couldn't find that topic, try: tech, productivity, developer-tools")
@@ -70,7 +70,7 @@ class MessengerController < ApplicationController
 			#   puts @finalLinks
 
 			@phPageTagline = @phPageArray.split('tagline_619b7">')
-			@phPageTagline.shift
+			@phPageTagline = @phPageTagline.shift
 			@finalTaglines = Array.new
 	    @phPageTagline.each do |tagline|
 			 	taglineChar = tagline.split("")
@@ -85,11 +85,11 @@ class MessengerController < ApplicationController
 				break if @finalTaglines.count == 5
 				@finalTaglines.push(theTagline)
 			end
-
+			puts @finalTaglines.inspect
 			counter = 0
 			numCounter = 1
 			@finalMessage = String.new
-			5.times do
+			while numCounter <= 5
 				@finalMessage = @finalMessage = "#{numCounter}. " + "#{@finalTitles[counter]} - #{@finalTaglines[counter]} - <#{@finalLinks[counter]}>" + "\n"
 				counter += 1
 				numCounter += 1
