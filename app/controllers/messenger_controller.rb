@@ -89,7 +89,7 @@ class MessengerController < ApplicationController
 			@phPageVote.shift
 			@finalVotes = Array.new
 	    @phPageVote.each do |vote|
-			 	votreChar = vote.split("")
+			 	voteChar = vote.split("")
 				theVote = String.new
 				voteChar.each do |char|
 					if char != '<'
