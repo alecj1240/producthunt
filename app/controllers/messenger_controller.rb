@@ -85,12 +85,14 @@ class MessengerController < ApplicationController
 				break if @finalTaglines.count == 5
 				@finalTaglines.push(theTagline)
 			end
-			puts @finalTaglines.inspect
+			#puts @finalTaglines.inspect
+
+
 			counter = 0
 			numCounter = 1
 			@finalMessage = String.new
 			while numCounter <= 5
-				@finalMessage = @finalMessage = "#{numCounter}. " + "#{@finalTitles[counter]} - #{@finalTaglines[counter]} - <#{@finalLinks[counter]}>" + "\n"
+				@finalMessage = @finalMessage + "#{numCounter}. " + "#{@finalTitles[counter]} - #{@finalTaglines[counter]} - <#{@finalLinks[counter]}>" + "\n"
 				counter += 1
 				numCounter += 1
 			end
