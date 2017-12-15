@@ -106,7 +106,7 @@ class MessengerController < ApplicationController
 				:title_link => "https://www.google.ca",
 				}
 			]
-			Messagehuman.sendMessage(@webhook["response_url"][0], "hey there", attachment)
+			Messagehuman.sendMessageAttach(@webhook["response_url"][0], "hey there", attachment)
 		end
   end
 end
