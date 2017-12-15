@@ -76,7 +76,7 @@ class MessengerController < ApplicationController
 			 	taglineChar = tagline.split("")
 				theTagline = String.new
 				taglineChar.each do |char|
-					if char != '"'
+					if char != '<'
 						theTagline = theTagline + char
 					else
 						break
