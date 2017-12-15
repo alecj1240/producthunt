@@ -128,7 +128,7 @@ class MessengerController < ApplicationController
 						:title => "#{@finalTitles[4]}",
 						:title_link => "#{@finalLinks[4]}",
 						:text => "#{@finalTaglines[4]}"
-					},
+					}
 				]
 				counter += 1
 			end
