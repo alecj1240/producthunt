@@ -100,7 +100,8 @@ class MessengerController < ApplicationController
 						:title => "#{@finalTitles[0]}",
 						:title_link => "#{@finalLinks[0]}",
 						:text => "#{@finalTaglines[0]}"
-					},
+					}#,
+=begin
 					{
 						:fallback => "#{@finalTitles[1]} - #{@finalTaglines[1]} - <#{@finalLinks[1]}>",
 						:color => "#36a64f",
@@ -129,6 +130,7 @@ class MessengerController < ApplicationController
 						:title_link => "#{@finalLinks[4]}",
 						:text => "#{@finalTaglines[4]}"
 					}
+=end
 				]
 				counter += 1
 			end
