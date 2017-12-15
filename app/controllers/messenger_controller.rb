@@ -93,19 +93,45 @@ class MessengerController < ApplicationController
 			@finalMessage = String.new
 			while numCounter <= 5
 				@finalMessage = @finalMessage + "#{numCounter}. " + "#{@finalTitles[counter]} - #{@finalTaglines[counter]} - <#{@finalLinks[counter]}>" + "\n"
+				attachment = [
+					{
+						:fallback => "#{@finalTitles[0]} - #{@finalTaglines[0]} - <#{@finalLinks[0]}>",
+						:color => "#36a64f",
+						:title => "#{@finalTitles[0]}",
+						:title_link => "#{@finalLinks[0]}",
+						:text => "#{@finalTaglines[0]}"
+					},
+					{
+						:fallback => "#{@finalTitles[1]} - #{@finalTaglines[1]} - <#{@finalLinks[1]}>",
+						:color => "#36a64f",
+						:title => "#{@finalTitles[1]}",
+						:title_link => "#{@finalLinks[1]}",
+						:text => "#{@finalTaglines[1]}"
+					},
+					{
+						:fallback => "#{@finalTitles[2]} - #{@finalTaglines[2]} - <#{@finalLinks[2]}>",
+						:color => "#36a64f",
+						:title => "#{@finalTitles[2]}",
+						:title_link => "#{@finalLinks[2]}",
+						:text => "#{@finalTaglines[2]}"
+					},
+					{
+						:fallback => "#{@finalTitles[3]} - #{@finalTaglines[3]} - <#{@finalLinks[3]}>",
+						:color => "#36a64f",
+						:title => "#{@finalTitles[3]}",
+						:title_link => "#{@finalLinks[3]}",
+						:text => "#{@finalTaglines[3]}"
+					},
+					{
+						:fallback => "#{@finalTitles[4]} - #{@finalTaglines[4]} - <#{@finalLinks[4]}>",
+						:color => "#36a64f",
+						:title => "#{@finalTitles[4]}",
+						:title_link => "#{@finalLinks[4]}",
+						:text => "#{@finalTaglines[4]}"
+					},
+				]
 				counter += 1
-				numCounter += 1
 			end
-			Messagehuman.sendMessage(@webhook["response_url"][0], @finalMessage)
-
-			attachment = [
-				{
-				:fallback => "this is the fallback message",
-				:color => "#36a64f",
-				:title => "THE TITLE",
-				:title_link => "https://www.google.ca",
-				}
-			]
 			Messagehuman.sendMessageAttach(@webhook["response_url"][0], "hey there", attachment)
 		end
   end
