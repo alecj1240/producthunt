@@ -135,7 +135,7 @@ class MessengerController < ApplicationController
                     title: "Vote Count: #{@finalVotes[0]}"
                 }
             ],
-						:image_url => "#{@finalImgs[0]}"
+						:thumb_url => "#{@finalImgs[0]}"
 					},
 					{
 						:fallback => "#{@finalTitles[1]} - #{@finalTaglines[1]} - <#{@finalLinks[1]}>",
