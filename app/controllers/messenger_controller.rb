@@ -164,7 +164,7 @@ class MessengerController < ApplicationController
             ]
 					},
 					{
-						:thumb_url => "#{@finalImgs[3]}"
+						:thumb_url => "#{@finalImgs[3]}",
 						:fallback => "#{@finalTitles[3]} - #{@finalTaglines[3]} - <#{@finalLinks[3]}>",
 						:color => "#36a64f",
 						:title => "#{@finalTitles[3]}",
