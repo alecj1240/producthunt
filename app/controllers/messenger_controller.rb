@@ -102,6 +102,25 @@ class MessengerController < ApplicationController
 				@finalVotes.push(theVote)
 			end
 
+			#
+			@phPageImg = @phPageArray.split('img src="')
+			@phPageImg.shift
+			@finalImgs = Array.new
+	    @phPageImg.each do |img|
+			 	imgChar = img.split("")
+				theImg = String.new
+				imgChar.each do |char|
+					if char != '"'
+						theImg = theImg + char
+					else
+						break
+					end
+				end
+				break if @finalImgs.count == 5
+				@finalImgs.push(theImg)
+			end
+
+
 
 			#puts @finalTaglines.inspect
 				attachment = [
@@ -115,7 +134,8 @@ class MessengerController < ApplicationController
                 {
                     title: "Vote Count: #{@finalVotes[0]}"
                 }
-            ]
+            ],
+						:image_url => "#{@finalImgs[0]}"
 					},
 					{
 						:fallback => "#{@finalTitles[1]} - #{@finalTaglines[1]} - <#{@finalLinks[1]}>",
