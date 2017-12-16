@@ -125,6 +125,7 @@ class MessengerController < ApplicationController
 			#puts @finalTaglines.inspect
 				attachment = [
 					{
+						:thumb_url => "#{@finalImgs[0]}",
 						:fallback => "#{@finalTitles[0]} - #{@finalTaglines[0]} - <#{@finalLinks[0]}>",
 						:color => "#36a64f",
 						:title => "#{@finalTitles[0]}",
@@ -134,10 +135,10 @@ class MessengerController < ApplicationController
                 {
                     title: "Vote Count: #{@finalVotes[0]}"
                 }
-            ],
-						:thumb_url => "#{@finalImgs[0]}"
+            ]
 					},
 					{
+						:thumb_url => "#{@finalImgs[1]}",
 						:fallback => "#{@finalTitles[1]} - #{@finalTaglines[1]} - <#{@finalLinks[1]}>",
 						:color => "#36a64f",
 						:title => "#{@finalTitles[1]}",
@@ -147,10 +148,10 @@ class MessengerController < ApplicationController
                 {
                     title: "Vote Count: #{@finalVotes[1]}"
                 }
-            ],
-						:thumb_url => "#{@finalImgs[1]}"
+            ]
 					},
 					{
+						:thumb_url => "#{@finalImgs[2]}",
 						:fallback => "#{@finalTitles[2]} - #{@finalTaglines[2]} - <#{@finalLinks[2]}>",
 						:color => "#36a64f",
 						:title => "#{@finalTitles[2]}",
@@ -160,10 +161,10 @@ class MessengerController < ApplicationController
                 {
                     title: "Vote Count: #{@finalVotes[2]}"
                 }
-            ],
-						:thumb_url => "#{@finalImgs[2]}"
+            ]
 					},
 					{
+						:thumb_url => "#{@finalImgs[3]}"
 						:fallback => "#{@finalTitles[3]} - #{@finalTaglines[3]} - <#{@finalLinks[3]}>",
 						:color => "#36a64f",
 						:title => "#{@finalTitles[3]}",
@@ -173,10 +174,10 @@ class MessengerController < ApplicationController
                 {
                     title: "Vote Count: #{@finalVotes[3]}"
                 }
-            ],
-						:thumb_url => "#{@finalImgs[3]}"
+            ]
 					},
 					{
+						:thumb_url => "#{@finalImgs[4]}",
 						:fallback => "#{@finalTitles[4]} - #{@finalTaglines[4]} - <#{@finalLinks[4]}>",
 						:color => "#36a64f",
 						:title => "#{@finalTitles[4]}",
@@ -186,8 +187,7 @@ class MessengerController < ApplicationController
                 {
                     title: "Vote Count: #{@finalVotes[4]}"
                 }
-            ],
-						:thumb_url => "#{@finalImgs[4]}"
+            ]
 					}
 				]
 			Messagehuman.sendMessageAttach(@webhook["response_url"][0], "", attachment)
