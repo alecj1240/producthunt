@@ -169,4 +169,15 @@ class MessengerController < ApplicationController
 			Messagehuman.sendMessageAttach(@webhook["response_url"][0], "", attachment)
 		end
   end
+
+
+	def done
+		puts params.inspect
+		thecode = params["code"]
+		if !thecode.nil?
+			@theToken = HTTParty.get("https://slack.com/api/oauth.access?client_id=219592720864.285551398295&client_secret=6546a0cc240d1946aa66f60f6bbcacd3&code=#{thecode}")
+			puts @theToken
+		end
+	end
+
 end
