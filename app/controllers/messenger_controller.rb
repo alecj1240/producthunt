@@ -147,7 +147,8 @@ class MessengerController < ApplicationController
                 {
                     title: "Vote Count: #{@finalVotes[1]}"
                 }
-            ]
+            ],
+						:thumb_url => "#{@finalImgs[1]}"
 					},
 					{
 						:fallback => "#{@finalTitles[2]} - #{@finalTaglines[2]} - <#{@finalLinks[2]}>",
@@ -159,7 +160,8 @@ class MessengerController < ApplicationController
                 {
                     title: "Vote Count: #{@finalVotes[2]}"
                 }
-            ]
+            ],
+						:thumb_url => "#{@finalImgs[2]}"
 					},
 					{
 						:fallback => "#{@finalTitles[3]} - #{@finalTaglines[3]} - <#{@finalLinks[3]}>",
@@ -171,7 +173,8 @@ class MessengerController < ApplicationController
                 {
                     title: "Vote Count: #{@finalVotes[3]}"
                 }
-            ]
+            ],
+						:thumb_url => "#{@finalImgs[3]}"
 					},
 					{
 						:fallback => "#{@finalTitles[4]} - #{@finalTaglines[4]} - <#{@finalLinks[4]}>",
@@ -183,7 +186,8 @@ class MessengerController < ApplicationController
                 {
                     title: "Vote Count: #{@finalVotes[4]}"
                 }
-            ]
+            ],
+						:thumb_url => "#{@finalImgs[4]}"
 					}
 				]
 			Messagehuman.sendMessageAttach(@webhook["response_url"][0], "", attachment)
