@@ -72,7 +72,8 @@ class MessengerController < ApplicationController
 				end
 				break if @finalLinks.count == 5
 				theLink = "https://www.producthunt.com" + theLink
-				@finalLinks.push(theLink.gsub!(" ", "-"))
+				theLink = theLink.gsub(" ", "-")
+				@finalLinks.push(theLink)
 			end
 			#   puts @finalLinks
 			@phPageTagline = @phPageArray.split('tagline_619b7">')
