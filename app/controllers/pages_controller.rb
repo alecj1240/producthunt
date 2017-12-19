@@ -2,6 +2,12 @@ class PagesController < ApplicationController
   def index
   end
 
+  def contact
+  end
+
+  def privacy
+  end
+
   def done
 		thecode = params["code"]
     puts thecode
@@ -11,4 +17,5 @@ class PagesController < ApplicationController
 			puts @theToken
 		end
 	end
+
 end
