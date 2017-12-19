@@ -10,6 +10,7 @@ class MessengerController < ApplicationController
 		if @webhook["text"][0] == "" || @webhook["text"][0] == " "
 			@webhook["text"][0] = "tech"
 		end
+		@webhook["text"][0].gsub!(" ", "-")
 		Messagehuman.sendMessage(@webhook["response_url"][0], "showing posts from #{@webhook["text"][0]}...")
     # getting the product hunt page that day
     @phPage = HTTParty.get("https://www.producthunt.com/topics/#{@webhook["text"][0]}")
