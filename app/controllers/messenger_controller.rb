@@ -72,7 +72,7 @@ class MessengerController < ApplicationController
 				end
 				break if @finalLinks.count == 5
 				theLink = "https://www.producthunt.com" + theLink
-				theLink = theLink.gsub(" ", "-")
+				theLink = theLink.gsub!(" ", "-")
 				@finalLinks.push(theLink)
 			end
 			#   puts @finalLinks
