@@ -7,15 +7,22 @@ class MessengerController < ApplicationController
   def receive_message
     @webhook = CGI::parse(request.raw_post)
   #  puts @webhook
+		if @webhook["text"][0] == "" || @webhook["text"][0] == " "
+			@webhook["text"][0] = "tech"
+		end
 		Messagehuman.sendMessage(@webhook["response_url"][0], "showing posts from #{@webhook["text"][0]}...")
     # getting the product hunt page that day
     @phPage = HTTParty.get("https://www.producthunt.com/topics/#{@webhook["text"][0]}")
     @phPage = @phPage.to_s
 		puts @phPage
 
-		if @phPage.include?("Page not found")
+		if @webhook["text"][0] == "help"
+			Messagehuman.sendMessage(@webhook["response_url"][0], "to use me: '/ph tech', or you can replace tech with: producitivy, developer-tools, games, books, bots, and many more!")
+		elsif @phPage.include?("Page not found")
 			Messagehuman.sendMessage(@webhook["response_url"][0], "sorry, we couldn't find that topic, try: tech, productivity, developer-tools")
 		else
+
+
     	#trimming down the excess
 
 	    @phPageArray = @phPage
@@ -64,6 +71,7 @@ class MessengerController < ApplicationController
 					end
 				end
 				break if @finalLinks.count == 5
+				theLink = theLink.gsub!(" ", "-")
 				theLink = "https://www.producthunt.com" + theLink
 				@finalLinks.push(theLink)
 			end
