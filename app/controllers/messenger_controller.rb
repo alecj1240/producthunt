@@ -6,6 +6,7 @@ class MessengerController < ApplicationController
 
   def receive_message
     @webhook = CGI::parse(request.raw_post)
+		@webhook["text"][0] = @webhook["text"][0].downcase
   #  puts @webhook
 		if @webhook["text"][0] == "" || @webhook["text"][0] == " "
 			@webhook["text"][0] = "tech"
